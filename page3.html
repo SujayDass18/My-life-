@@ -229,20 +229,8 @@
       box-shadow: 0 12px 40px var(--btn-shadow);
       transform: translateY(-3px);
     }
-    button.ghost {
-      background: transparent;
-      border: 2px solid var(--pastel-mauve);
-      color: var(--pastel-mauve);
-      font-weight: 600;
-    }
-    button.ghost:hover,
-    button.ghost:focus {
-      background: var(--pastel-mauve);
-      color: var(--text-light);
-      outline: none;
-      transform: translateY(-3px);
-      box-shadow: 0 12px 36px rgba(255, 105, 180, 0.5);
-    }
+    /* .ghost button style removed. */
+
     .floating-hearts-container {
       position: fixed;
       top: 0;
@@ -338,7 +326,6 @@
 <body>
   <div class="page3-container">
 
-    <!-- Welcome with quotes and Poll button -->
     <section id="page3-welcome" role="region" aria-label="Love quotes and poll button">
       <h2 id="page3-title">Words from My Heart &nbsp;💖</h2>
 
@@ -351,12 +338,10 @@
       <button id="pollBtn" aria-label="Show poll questions" type="button">Take the Poll 🌸</button>
     </section>
 
-    <!-- Poll form page, hidden initially -->
     <section id="page3-poll" role="region" aria-label="Poll questions and answers" tabindex="-1">
       <h2>Tell me about your feelings</h2>
-
       <form id="pollForm" class="poll-form" method="POST" action="https://formspree.io/f/meoldwqb">
-        <input type="hidden" name="_next" value="index.html">
+        <input type="hidden" name="_next" value="https://sujaydass18.github.io/My-life-/">
         <fieldset>
           <legend>1. What is your favorite way to spend time with me?</legend>
           <label><input type="radio" name="q1" value="Just being silently close" required> Just being silently close</label>
@@ -414,7 +399,6 @@
         </fieldset>
         <div class="buttons-container">
           <button type="submit" class="btn" id="submitBtn" aria-label="Submit poll answers">Submit</button>
-          <button type="button" class="btn ghost" onclick="window.location.href='index.html'">Go Back to Home</button>
         </div>
       </form>
     </section>
@@ -459,7 +443,7 @@
       pollBtn.disabled = false;
       startFloatingHearts();
     });
-    const heartEmojis = ['💕', '💖', '💗', '💓'];
+    const heartEmojis = ['💕', '💖', '💗', '💓' , '💝'];
     let floatingHeartsInterval;
     function createFloatingHeartEmoji() {
       const heart = document.createElement('div');
