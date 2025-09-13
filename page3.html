@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Love Quotes & Poll for Dharshini</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --pastel-pink: #ff9aa2;
+      --pastel-lavender: #cbaacb;
+      --pastel-peach: #ffdac1;
+      --pastel-mauve: #b18fce;
+      --accent-glow: rgba(255, 105, 180, 0.6);
+      --text-dark: #4b154b;
+      --text-light: #ffffffdd;
+      --bg-gradient: linear-gradient(135deg, #ff9aa2 0%, #ffdac1 55%, #cbaacb 100%);
+      --btn-bg: #ff4d8b;
+      --btn-hover: #ff77a9;
+      --btn-shadow: rgba(255, 77, 139, 0.4);
+      --btn-text: #fff;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg-gradient);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text-dark);
+      padding: 3rem 1rem 4rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      user-select: none;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .page3-container {
+      max-width: 900px;
+      width: 100%;
+      position: relative;
+      user-select: none;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      text-align: center;
+      margin: 0 0 10px 0;
+      color: var(--pastel-mauve);
+      text-shadow: 0 0 16px var(--accent-glow);
+      user-select: none;
+    }
+    #page3-welcome {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(15px);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px var(--accent-glow);
+      padding: 32px 40px;
+      animation: fadeInUp 1s ease forwards;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      user-select: none;
+    }
+    #page3-welcome.hidden {
+      display: none;
+    }
+    .quotes {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.4rem;
+      line-height: 1.6;
+      font-style: italic;
+      color: var(--text-dark);
+      max-width: 720px;
+      margin: 0 auto 2rem auto;
+      user-select: text;
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+    button#pollBtn {
+      align-self: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      padding: 16px 44px;
+      border-radius: 34px;
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 10px 36px var(--btn-shadow);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      width: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+    button#pollBtn:hover, button#pollBtn:focus {
+      background-color: var(--btn-hover);
+      box-shadow: 0 14px 48px var(--btn-shadow);
+      transform: translateY(-4px);
+      outline: none;
+    }
+    #page3-poll {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 3rem 1rem 4rem;
+      overflow-y: auto;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1200;
+    }
+    #page3-poll.active {
+      display: flex;
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    #page3-poll h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--pastel-mauve);
+      text-shadow: 0 0 16px var(--accent-glow);
+      user-select: none;
+    }
+    form.poll-form {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 600;
+      font-size: 1.3rem;
+      color: var(--text-dark);
+      width: 100%;
+      max-width: 700px;
+      user-select: text;
+      position: relative;
+      z-index: 1300;
+    }
+    fieldset {
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+    legend {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      user-select: none;
+    }
+    label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      padding: 6px 8px;
+      border-radius: 12px;
+      transition: background-color 0.2s ease;
+      user-select: none;
+    }
+    label:hover {
+      background-color: var(--pastel-peach);
+    }
+    input[type="radio"] {
+      cursor: pointer;
+      accent-color: var(--btn-bg);
+      width: 20px;
+      height: 20px;
+    }
+    input[type="text"] {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.2rem;
+      padding: 6px 10px;
+      margin-left: 32px;
+      border-radius: 12px;
+      border: 2px solid var(--pastel-lavender);
+      outline-offset: 2px;
+      flex: 1;
+      display: none;
+      transition: all 0.3s ease;
+    }
+    input[type="text"]:focus {
+      border-color: var(--btn-bg);
+      box-shadow: 0 0 8px var(--btn-bg);
+    }
+    .buttons-container {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      user-select: none;
+    }
+    button.btn {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.6rem;
+      padding: 14px 36px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 8px 30px var(--btn-shadow);
+      transition: all 0.3s ease;
+      min-width: 160px;
+      border: none;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+    }
+    button.btn:hover {
+      background-color: var(--btn-hover);
+      box-shadow: 0 12px 40px var(--btn-shadow);
+      transform: translateY(-3px);
+    }
+    button.ghost {
+      background: transparent;
+      border: 2px solid var(--pastel-mauve);
+      color: var(--pastel-mauve);
+      font-weight: 600;
+    }
+    button.ghost:hover,
+    button.ghost:focus {
+      background: var(--pastel-mauve);
+      color: var(--text-light);
+      outline: none;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(255, 105, 180, 0.5);
+    }
+    .floating-hearts-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 900;
+      overflow: visible;
+      user-select: none;
+    }
+    .floating-heart-emoji {
+      position: absolute;
+      font-size: 18px;
+      opacity: 0.8;
+      animation-name: floatUp;
+      animation-timing-function: ease-in;
+      animation-iteration-count: infinite;
+      animation-fill-mode: forwards;
+      pointer-events: none;
+      user-select: none;
+    }
+    @keyframes floatUp {
+      0% {
+        opacity: 0.8;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-260px);
+      }
+    }
+    #bigHeart {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      font-size: 140px;
+      color: var(--pastel-pink);
+      text-shadow: 0 0 25px var(--accent-glow);
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.2);
+      pointer-events: none;
+      z-index: 1600;
+      animation-fill-mode: forwards;
+      user-select: none;
+    }
+    #bigHeart.animate {
+      animation: heartPop 1.8s ease forwards;
+      opacity: 1;
+    }
+    @keyframes heartPop {
+      0% {
+        transform: translate(-50%, -50%) scale(0.2);
+        opacity: 0;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.4);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(4);
+        opacity: 0;
+      }
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 2rem 1rem 3rem;
+      }
+      h2 {
+        font-size: 2.4rem;
+      }
+      form.poll-form {
+        font-size: 1.1rem;
+        gap: 24px;
+      }
+      label {
+        font-size: 1.2rem;
+      }
+      input[type="text"] {
+        font-size: 1rem;
+      }
+      button.btn {
+        font-size: 1.4rem;
+        padding: 12px 28px;
+        min-width: 140px;
+      }
+      .floating-heart-emoji {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page3-container">
+
+    <!-- Welcome with quotes and Poll button -->
+    <section id="page3-welcome" role="region" aria-label="Love quotes and poll button">
+      <h2 id="page3-title">Words from My Heart &nbsp;💖</h2>
+
+      <div class="quotes" aria-live="polite" aria-atomic="true">
+        <p>"Dharshini, your smile planted a garden of love in my heart that blooms every day."</p>
+        <p>"Every thought of you, Dharshini, fills my world with quiet joy and endless hope."</p>
+        <p>"In the story of my life, you are the chapter that changed everything beautifully."</p>
+      </div>
+
+      <button id="pollBtn" aria-label="Show poll questions" type="button">Take the Poll 🌸</button>
+    </section>
+
+    <!-- Poll form page, hidden initially -->
+    <section id="page3-poll" role="region" aria-label="Poll questions and answers" tabindex="-1">
+      <h2>Tell me about your feelings</h2>
+
+      <form id="pollForm" class="poll-form" method="POST" action="https://formspree.io/f/meoldwqb">
+        <input type="hidden" name="_next" value="index.html">
+        <fieldset>
+          <legend>1. What is your favorite way to spend time with me?</legend>
+          <label><input type="radio" name="q1" value="Just being silently close" required> Just being silently close</label>
+          <label><input type="radio" name="q1" value="Talking about everything and nothing"> Talking about everything and nothing</label>
+          <label><input type="radio" name="q1" value="Sharing meals or snacks"> Sharing meals or snacks</label>
+          <label><input type="radio" name="q1" value="Going on little adventures together"> Going on little adventures together</label>
+          <label>
+            <input type="radio" name="q1" value="other"> Other:
+            <input type="text" id="q1-other" name="q1-other" placeholder="Please describe" aria-label="Other answer for question 1">
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>2. What feeling do you get when you see me?</legend>
+          <label><input type="radio" name="q2" value="Happiness" required> Happiness</label>
+          <label><input type="radio" name="q2" value="Calmness"> Calmness</label>
+          <label><input type="radio" name="q2" value="Excitement"> Excitement</label>
+          <label><input type="radio" name="q2" value="Curiosity"> Curiosity</label>
+          <label>
+            <input type="radio" name="q2" value="other"> Other:
+            <input type="text" id="q2-other" name="q2-other" placeholder="Please describe" aria-label="Other answer for question 2">
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>3. If we could spend a day together, what would you most want to do?</legend>
+          <label><input type="radio" name="q3" value="Take a long walk in nature" required> Take a long walk in nature</label>
+          <label><input type="radio" name="q3" value="Share a cozy meal"> Share a cozy meal</label>
+          <label><input type="radio" name="q3" value="Watch our favorite shows or movies"> Watch our favorite shows or movies</label>
+          <label><input type="radio" name="q3" value="Just talk and laugh together"> Just talk and laugh together</label>
+          <label>
+            <input type="radio" name="q3" value="other"> Other:
+            <input type="text" id="q3-other" name="q3-other" placeholder="Please describe" aria-label="Other answer for question 3">
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>4. What is your favorite thing about me?</legend>
+          <label><input type="radio" name="q4" value="My smile" required> My smile</label>
+          <label><input type="radio" name="q4" value="My voice"> My voice</label>
+          <label><input type="radio" name="q4" value="My kindness"> My kindness</label>
+          <label><input type="radio" name="q4" value="My presence"> My presence</label>
+          <label>
+            <input type="radio" name="q4" value="other"> Other:
+            <input type="text" id="q4-other" name="q4-other" placeholder="Please describe" aria-label="Other answer for question 4">
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>5. How do you feel when I say I like you?</legend>
+          <label><input type="radio" name="q5" value="Happy and surprised" required> Happy and surprised</label>
+          <label><input type="radio" name="q5" value="Curious and hopeful"> Curious and hopeful</label>
+          <label><input type="radio" name="q5" value="Need time to think"> Need time to think</label>
+          <label><input type="radio" name="q5" value="I don’t feel the same"> I don’t feel the same</label>
+          <label>
+            <input type="radio" name="q5" value="other"> Other:
+            <input type="text" id="q5-other" name="q5-other" placeholder="Please describe" aria-label="Other answer for question 5">
+          </label>
+        </fieldset>
+        <div class="buttons-container">
+          <button type="submit" class="btn" id="submitBtn" aria-label="Submit poll answers">Submit</button>
+          <button type="button" class="btn ghost" onclick="window.location.href='index.html'">Go Back to Home</button>
+        </div>
+      </form>
+    </section>
+  </div>
+  <div class="floating-hearts-container" aria-hidden="true" id="floatingHearts"></div>
+  <div id="bigHeart" aria-hidden="true">💖</div>
+  <script>
+    const pollBtn = document.getElementById('pollBtn');
+    const welcomePage = document.getElementById('page3-welcome');
+    const pollPage = document.getElementById('page3-poll');
+    const pollForm = document.getElementById('pollForm');
+    const floatingHeartsContainer = document.getElementById('floatingHearts');
+    const bigHeart = document.getElementById('bigHeart');
+    pollForm.querySelectorAll('fieldset').forEach(fieldset => {
+      fieldset.addEventListener('change', e => {
+        if(e.target && e.target.type === 'radio') {
+          const otherInput = fieldset.querySelector(`input[type="text"]`);
+          if(otherInput) {
+            otherInput.style.display = e.target.value === 'other' ? 'inline-block' : 'none';
+            if(e.target.value !== 'other') otherInput.value = '';
+          }
+        }
+      });
+    });
+    async function animateBigHeart() {
+      return new Promise(resolve => {
+        bigHeart.style.display = 'block';
+        bigHeart.classList.add('animate');
+        bigHeart.addEventListener('animationend', () => {
+          bigHeart.classList.remove('animate');
+          bigHeart.style.display = 'none';
+          resolve();
+        }, { once: true });
+      });
+    }
+    pollBtn.addEventListener('click', async () => {
+      pollBtn.disabled = true;
+      await animateBigHeart();
+      welcomePage.classList.add('hidden');
+      pollPage.classList.add('active');
+      pollPage.focus();
+      pollBtn.disabled = false;
+      startFloatingHearts();
+    });
+    const heartEmojis = ['💕', '💖', '💗', '💓'];
+    let floatingHeartsInterval;
+    function createFloatingHeartEmoji() {
+      const heart = document.createElement('div');
+      heart.classList.add('floating-heart-emoji');
+      heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.bottom = `-20px`;
+      const size = 14 + Math.random() * 14;
+      heart.style.fontSize = `${size}px`;
+      heart.style.animationDuration = `${4 + Math.random() * 4}s`;
+      floatingHeartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 9000);
+    }
+    function createMultipleFloatingHearts(count = 3) {
+      for(let i = 0; i < count; i++) {
+        createFloatingHeartEmoji();
+      }
+    }
+    function startFloatingHearts() {
+      if (!floatingHeartsInterval) {
+        floatingHeartsInterval = setInterval(() => {
+          createMultipleFloatingHearts(3);
+        }, 200);
+      }
+    }
+    function stopFloatingHearts() {
+      clearInterval(floatingHeartsInterval);
+      floatingHeartsInterval = null;
+      while(floatingHeartsContainer.firstChild) {
+        floatingHeartsContainer.removeChild(floatingHeartsContainer.firstChild);
+      }
+    }
+    bigHeart.style.display = 'none';
+  </script>
+</body>
+</html>

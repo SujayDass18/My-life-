@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For Dharshini ❣️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg1: linear-gradient(135deg, #ff9aaf 0%, #ff6f91 100%);
+      --accent: #ff4d8b;
+      --accent-glow: #ff7bab;
+      --text-light: #fff0f6;
+      --text-dark: #3a0e2a;
+      --button-bg: #ff4d8b;
+      --button-hover: #ff77a9;
+      --btn-shadow: rgba(255, 77, 139, 0.3);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, Arial, sans-serif;
+      background: var(--bg1);
+      color: var(--text-light);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 28px auto;
+      padding: 18px;
+      display: grid;
+      gap: 18px;
+      position: relative;
+      z-index: 10;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      color: var(--text-light);
+      font-size: 28px;
+      font-family: 'Great Vibes', cursive;
+      animation: heartbeat 1.5s infinite;
+      box-shadow: 0 0 15px var(--accent-glow);
+      flex-shrink: 0;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px var(--accent-glow);
+      }
+      50% {
+        transform: scale(1.15);
+        box-shadow: 0 0 35px var(--accent-glow);
+      }
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 30px;
+      font-family: 'Dancing Script', cursive;
+      text-shadow: 0 0 5px rgba(255, 77, 139, 0.8);
+      user-select: none;
+    }
+
+    .sub {
+      color: #ffd4e1cc;
+      margin-top: 4px;
+      font-size: 18px;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    nav {
+      margin-left: auto;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      visibility: hidden;
+    }
+
+    main {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 24px 30px;
+      box-shadow: 0 0 40px rgba(255, 77, 139, 0.35);
+      backdrop-filter: blur(12px);
+      color: var(--text-dark);
+      user-select: none;
+      min-height: 340px;
+    }
+
+    .pages {
+      display: grid;
+      grid-template-columns: 1fr;
+      min-height: 420px;
+    }
+
+    .page {
+      display: none;
+      padding: 8px;
+      gap: 12px;
+    }
+
+    .page.active {
+      display: block;
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #page1 {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      user-select: none;
+    }
+
+    #page1 > div:first-child {
+      flex: 1 1 280px;
+      min-width: 280px;
+      text-align: center;
+    }
+
+    #page1 h2 {
+      font-size: 32px;
+      font-family: 'Great Vibes', cursive;
+      color: var(--accent);
+      margin-bottom: 12px;
+      user-select: text;
+    }
+
+    #page1 p {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #4a1029;
+      user-select: text;
+    }
+
+    /* Button with full text and emojis */
+    #page1 button.btn {
+      margin-top: 18px;
+      background: var(--button-bg);
+      border: none;
+      padding: 14px 28px;
+      border-radius: 24px;
+      color: var(--text-light);
+      font-weight: 700;
+      font-size: 20px;
+      box-shadow: 0 8px 28px var(--btn-shadow);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      user-select: none;
+      font-family: 'Dancing Script', cursive;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      line-height: 1;
+    }
+
+    #page1 button.btn:hover,
+    #page1 button.btn:focus {
+      background: var(--button-hover);
+      box-shadow: 0 10px 40px var(--btn-shadow);
+      transform: translateY(-4px);
+      outline: none;
+    }
+
+    #page1 > div:last-child {
+      flex: 1 1 320px;
+      max-width: 320px;
+      border-radius: 20px;
+      padding: 18px;
+      background: #fff0f6;
+      box-shadow: 0 8px 25px rgba(255, 77, 139, 0.15);
+      color: var(--accent);
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    /* Replace photo with a love symbol */
+    #page1 > div:last-child .love-symbol {
+      font-size: 64px;
+      margin-bottom: 6px;
+      user-select: none;
+    }
+
+    #page1 strong {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 6px;
+      user-select: text;
+    }
+
+    #page1 .small {
+      font-size: 16px;
+      line-height: 1.4;
+      color: #a63a66;
+      user-select: text;
+      text-align: center;
+    }
+
+    /* Page 2 styling */
+    #page2 {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 24px 32px;
+      box-shadow: 0 0 40px rgba(255, 77, 139, 0.45);
+      color: var(--text-dark);
+      font-family: 'Dancing Script', cursive;
+      font-weight: 600;
+      font-size: 1.3rem;
+    }
+
+    /* Big heart animation overlay */
+    #bigHeart {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      font-size: 140px;
+      color: var(--accent);
+      text-shadow: 0 0 25px var(--accent-glow);
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.2);
+      pointer-events: none;
+      z-index: 1600;
+      animation-fill-mode: forwards;
+      user-select: none;
+      mix-blend-mode: screen;
+    }
+    #bigHeart.animate {
+      animation: heartPop 1.8s ease forwards;
+      opacity: 1;
+    }
+    @keyframes heartPop {
+      0% {
+        transform: translate(-50%, -50%) scale(0.2);
+        opacity: 0;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.4);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(4);
+        opacity: 0;
+      }
+    }
+
+    /* Floating hearts container & emoji hearts */
+    .floating-hearts-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 950;
+      overflow: visible;
+      user-select: none;
+    }
+
+    .floating-heart-emoji {
+      position: absolute;
+      font-size: 18px;
+      opacity: 0.25;
+      animation-name: floatUp;
+      animation-timing-function: ease-in;
+      animation-iteration-count: infinite;
+      animation-fill-mode: forwards;
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 0 3px rgba(255 77 139 / 0.15));
+    }
+    @keyframes floatUp {
+      0% {
+        opacity: 0.7;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-300px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 16px;
+        padding: 10px;
+      }
+      .wrap {
+        max-width: 100%;
+        margin: 12px auto;
+        padding: 12px;
+        display: block;
+      }
+      header {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        text-align: center;
+      }
+      .logo {
+        width: 56px;
+        height: 56px;
+        font-size: 24px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      nav {
+        display: none;
+      }
+      main {
+        padding: 18px 12px;
+      }
+      #page1 {
+        flex-direction: column;
+        gap: 20px;
+      }
+      #page1 > div:first-child {
+        min-width: auto;
+        text-align: center;
+      }
+      #page1 h2 {
+        font-size: 26px;
+      }
+      #page1 p {
+        font-size: 16px;
+      }
+      #page1 button.btn {
+        width: auto;
+        font-size: 18px;
+        padding: 14px 28px;
+        margin: 16px auto 0 auto;
+      }
+      #page1 > div:last-child {
+        width: 100%;
+        max-width: 360px;
+        padding: 16px;
+      }
+      .floating-heart-emoji {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">❣️</div>
+      <div>
+        <h1 id="title">A special page for you ❣️</h1>
+        <div class="sub">Hey Dharshini — I made this website just for you. There’s something I want you to see…</div>
+      </div>
+      <nav></nav>
+    </header>
+
+    <main>
+      <div class="pages">
+        <section id="page1" class="page active fadeIn">
+          <div>
+            <h2 id="p1-heading">Step into my heart 💫</h2>
+            <p id="p1-text" class="small">This little corner holds a thousand tiny reasons — the colour of your smile, the calm in your voice, the warmth that feels like home. Press the button and see.</p>
+            <button class="btn" id="to2" aria-label="Step inside button" onclick="window.location.href='page2.html'">Step inside 💞✨</button>
+          </div>
+          <div>
+            <div class="love-symbol" aria-hidden="true">💞</div>
+            <strong>Little promise</strong>
+            <div class="small">I will always try to make you laugh on days you forget how to smile.</div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+  </div>
+
+  <div class="floating-hearts-container" aria-hidden="true" id="floatingHearts"></div>
+  <div id="bigHeart" aria-hidden="true">💖</div>
+
+  <script>
+    const floatingHeartsContainer = document.getElementById('floatingHearts');
+    const heartEmojis = ['💕','💓','💜','💗','❤️','💞','🩷','🩶','❤️','🖤','💘','💝','💗','❣️','🤎','🤍'];
+
+    function createFloatingHeartEmoji() {
+      const heart = document.createElement('div');
+      heart.classList.add('floating-heart-emoji');
+      heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.bottom = `-20px`;
+      const size = 14 + Math.random() * 14;  // 14px to 28px
+      heart.style.fontSize = `${size}px`;
+      heart.style.animationDuration = `${6 + Math.random() * 6}s`;
+      heart.style.opacity = 0.2 + Math.random() * 0.4; // mild opacity
+      floatingHeartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 12000);
+    }
+
+    // Spawn multiple hearts at intervals for smooth effect
+    setInterval(() => {
+      for(let i=0; i<4; i++) createFloatingHeartEmoji();
+    }, 250);
+  </script>
+
+</body>
+</html>
